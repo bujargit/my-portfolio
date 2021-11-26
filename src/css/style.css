@@ -1,0 +1,57 @@
+header::before,
+header::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.primary-bg-color {
+  background-color: #800080;
+}
+
+.name-placeholder a{
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.name-placeholder a:hover{
+    color: #000;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul.list-unstyled {
+  margin: 0;
+}
+
+.main-menu li {
+  display: inline;
+  margin: 0 10px;
+}
+.main-menu li a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.main-menu li a:hover, 
+.main-menu li a.active {
+    color: #000;
+}
+
+.content-wrapper {
+    display: flex;
+    height: calc(100vh - 70px);
+    align-items: center;
+    justify-content: center;
+}
