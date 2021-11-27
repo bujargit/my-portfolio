@@ -9,7 +9,7 @@ export default function Navbar() {
         <Container>
           <div className="name-placeholder">
             <Typography variant="h6" color="primary">
-              Bujar Hyseni
+              BujarHyseni
             </Typography>
           </div>
           <div className="links-holder">
