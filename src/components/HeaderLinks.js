@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import classes from "./HeaderLinks.module.css";
+// import { useAuth } from "../context/AuthContext";
 
 export default function HeaderLinks() {
   return (
@@ -18,7 +19,7 @@ export default function HeaderLinks() {
         </li>
         <li>
           <NavLink to="/login" activeClassName={classes.active}>
-            LOGIN
+            Login
           </NavLink>
         </li>
       </ul>

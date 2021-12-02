@@ -1,88 +1,96 @@
-import React, { useState } from "react";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
-import AcUnitOutlinedIcon from "@mui/icons-material/AcUnitOutlined";
-import SendRoundedIcon from "@mui/icons-material/SendRounded";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import { makeStyles } from "@mui/styles";
-import TextField from "@mui/material/TextField";
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
+// import React, { useState } from "react";
+// import Container from "@mui/material/Container";
+// import Grid from "@mui/material/Grid";
+// import { makeStyles } from "@mui/styles";
+// import Typography from "@mui/material/Typography";
+// import Button from "@mui/material/Button";
+// import AcUnitOutlinedIcon from "@mui/icons-material/AcUnitOutlined";
+// import SendRoundedIcon from "@mui/icons-material/SendRounded";
+// import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+// import TextField from "@mui/material/TextField";
+// import Paper from "@mui/material/Paper";
 
 
-const useStyles = makeStyles({
-  field: {
-    marginTop: 20,
-    marginBottom: 20,
-    display: "block",
-  },
-});
+// const useStyles = makeStyles({
+//   field: {
+//     marginTop: 20,
+//     marginBottom: 20,
+//     display: "block",
+//   },
+// });
+
+// export default function Login() {
+//   // const classes = useStyles();
+//   // const [title, setTitle] = useState('');
+//   // const [details, setDetails] = useState('');
+
+  
+//   return (
+//     <Container>
+//       <Grid container>
+//         <Grid item xs={12} sm={6} md={3} spacing={3}>
+//           Login Here
+//         </Grid>        
+//       </Grid>      
+//     </Container>
+//   );
+// }
+
+import React, { useRef, useState } from "react" 
+// import { Form, Button, Card, Alert } from "react-bootstrap"
+import { useAuth } from "../context/AuthContext";
+import { Link, useHistory } from "react-router-dom";
 
 export default function Login() {
-  const classes = useStyles();
-  const [title, setTitle] = useState('');
-  const [details, setDetails] = useState('');
+  const emailRef = useRef()
+  const passwordRef = useRef()
+  const { login } = useAuth()
+  const [error, setError] = useState("")
+  const [loading, setLoading] = useState(false)
+  const history = useHistory()
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  async function handleSubmit(e) {
+    e.preventDefault()
 
-    if (title && details) {
-      console.log(title, details);
+    try {
+      setError("")
+      setLoading(true)
+      await login(emailRef.current.value, passwordRef.current.value)
+      history.push("/dashboard")
+    } catch {
+      setError("Failed to log in")
     }
-  };
+
+    setLoading(false)
+  }
+
   return (
-    <Container>
-      <Grid container>
-        <Grid item xs={12} sm={6} md={3} spacing={3}>
-          <Paper>1</Paper>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <Paper>2</Paper>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <Paper>3</Paper>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <Paper>4</Paper>
-        </Grid>
-      </Grid>
-      <Typography variant="h6" component="h2" color="primary">
-        Create a New Note
-      </Typography>
-      <AcUnitOutlinedIcon color="primary" />
-      <form noValidate autoComplete="off" onSubmit={handleSubmit}>
-        <TextField
-          onClick={(e) => setTitle(e.target.value)}
-          className={classes.field}
-          label="Note Title"
-          variant="outlined"
-          color="primary"
-          fullWidth
-          required
-        />
-        <TextField
-          onClick={(e) => setDetails(e.target.value)}
-          className={classes.field}
-          label="Details"
-          variant="outlined"
-          color="primary"
-          multiline
-          rows="4"
-          fullWidth
-          required
-        />
-        <Button
-          className={classes.btn}
-          type="submit"
-          color="secondary"
-          variant="contained"
-          startIcon={<SendRoundedIcon />}
-          endIcon={<KeyboardArrowRightIcon />}
-        >
-          Submit
-        </Button>
-      </form>
-    </Container>
-  );
+    <>
+      <div>
+        <div>
+          <h2 className="text-center mb-4">Log In</h2>
+          {error && <div variant="danger">{error}</div>}
+          <form onSubmit={handleSubmit}>
+            <div id="email">
+              <label>Email</label>
+              <input type="email" ref={emailRef} required />
+            </div>
+            <div id="password">
+              <label>Password</label>
+              <input type="password" ref={passwordRef} required />
+            </div>
+            <button disabled={loading} className="w-100" type="submit">
+              Log In
+            </button>
+          </form>
+          {/* <div className="w-100 text-center mt-3">
+            <Link to="/forgot-password">Forgot Password?</Link>
+          </div> */}
+        </div>
+      </div>
+      <div className="w-100 text-center mt-2">
+        Need an account? <Link to="/signup">Sign Up</Link>
+      </div>
+    </>
+  )
 }
