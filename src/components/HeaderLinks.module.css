@@ -1,0 +1,20 @@
+.mainmenu {
+  float: right;
+  margin: 0;
+  padding: 0;
+}
+
+.mainmenu li {
+  display: inline;
+  margin: 0 10px;
+}
+
+.mainmenu li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.mainmenu li a:hover,
+.mainmenu li a.active {
+  color: #000;
+}

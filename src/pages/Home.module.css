@@ -1,0 +1,30 @@
+.main__text__box {
+  width: auto;
+  margin: 0 auto;
+  height: auto;
+  padding-bottom: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+  padding: 60px 0;
+  text-align: center;
+  box-shadow: 5px 8px 14px -4px #000;
+}
+
+.main__text__box > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link__to__blog {
+  color: white;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+.link__to__blog:hover {
+  color: #800080;
+  border: 1px solid #800080;
+}

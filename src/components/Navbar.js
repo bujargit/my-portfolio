@@ -1,36 +1,19 @@
-import { NavLink } from "react-router-dom";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
+import classes from "./Navbar.module.css";
+import HeaderLinks from "./HeaderLinks";
 
 export default function Navbar() {
   return (
     <>
-      <header className="header primary-bg-color header-shadow">
+      <header className={`${classes.header} ${classes.header__shadow} ${["primary-bg-color"]}`}>
         <Container>
-          <div className="name-placeholder">
+          <div className={classes.name__placeholder}>
             <Typography variant="h6" color="primary">
               Bujar Hyseni
             </Typography>
           </div>
-          <div className="links-holder">
-            <ul className="main-menu list-unstyled">
-              <li>
-                <NavLink to="/" exact activeClassName="active">
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/blog" activeClassName="active">
-                  Blog
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/login" activeClassName="active">
-                  LOGIN
-                </NavLink>
-              </li>
-            </ul>
-          </div>
+          <HeaderLinks />
         </Container>
       </header>
     </>

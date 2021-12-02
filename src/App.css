@@ -1,6 +1,14 @@
-@import 'css/style.css';
-.App {
-  text-align: center;
+/* @import 'css/Main.module.css'; */
+.loader__wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {
@@ -27,6 +35,20 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.primary-bg-color {
+  background-color: #800080;
+}
+
+.contentBg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  height: calc(100vh - 70px);
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes App-logo-spin {
