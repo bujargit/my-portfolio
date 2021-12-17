@@ -1,6 +1,39 @@
-.hero {
-    height: 100vh;
+.home_title {
+  color: white;
+  font-weight: 900;
+  font-size: 70px;
+  margin-bottom: 15px;
 }
-.title {
-    color: red;
+
+.home__button {
+  padding: 10px;
+  background: none;
+  border-radius: 10px;
+  color: white;
+  border: 1px solid white;
+}
+.home__button:hover {
+  background: white;
+  color: black;
+}
+
+.typewrite__holder {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  float: left;
+  width: 100%;
+}
+.typewrite__holder span {
+  float: left;
+}
+.typewrite__holder > span:first-child {
+  margin-right: 4px;
+}
+
+h6 {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.my__avatar {
+  width: 100%;
 }

@@ -3,6 +3,14 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Rubik";
   margin: 0;
+  background-color: #3a3973;
+  color: white;
 }
+
+.jumbotron {
+  background: none;
+  margin-top: 5rem;
+}
+
