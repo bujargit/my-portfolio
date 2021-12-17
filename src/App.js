@@ -34,8 +34,6 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-<<<<<<< HEAD
-<<<<<<< HEAD
         <Navbar theme={theme} />
         <div className="contentBg" style={{ backgroundImage: `url(${bgImg})` }}>
           {loading ? (
@@ -60,9 +58,6 @@ function App() {
               </Switch>
             </Container>
           )}
-=======
-=======
->>>>>>> parent of a979d86 (Works list updated)
         <Navbar theme={theme}/>
         <div
           className="content-wrapper"
@@ -81,10 +76,6 @@ function App() {
               </Route>
             </Switch>
           </div>
-<<<<<<< HEAD
->>>>>>> parent of a979d86 (Works list updated)
-=======
->>>>>>> parent of a979d86 (Works list updated)
         </div>
       </Router>
     </ThemeProvider>
