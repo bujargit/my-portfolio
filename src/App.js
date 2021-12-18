@@ -2,13 +2,13 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Portfolio from "./pages/Portfolio";
-import NavBar from "./components/NavBar";
+import NavigationBar from "./components/NavigationBar";
 import NotFound from "./pages/NotFound";
 
 const App = () => {
   return (
     <div>
-      <NavBar />
+      <NavigationBar />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/portfolio" exact component={Portfolio} />

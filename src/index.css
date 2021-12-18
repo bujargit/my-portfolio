@@ -11,6 +11,20 @@ body {
 
 .jumbotron {
   background: none;
-  margin-top: 5rem;
+}
+
+section {
+  margin-top: 3rem;
+}
+
+html {
+  font-size: 15px;
+}
+
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 12px;
+  }
 }
 

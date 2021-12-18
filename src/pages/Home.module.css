@@ -1,7 +1,7 @@
 .home_title {
   color: white;
   font-weight: 900;
-  font-size: 70px;
+  font-size: 3rem;
   margin-bottom: 15px;
 }
 
@@ -36,4 +36,11 @@ h6 {
 
 .my__avatar {
   width: 100%;
+}
+
+
+@media screen and (max-width: 600px) {
+  .my__avatar {
+    width: 80%;
+  }
 }
