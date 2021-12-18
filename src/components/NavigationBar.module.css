@@ -1,5 +1,7 @@
 .navbar a {
   color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 1.5rem;
+  font-weight: 100;
 }
 
 .navbar a:hover,
