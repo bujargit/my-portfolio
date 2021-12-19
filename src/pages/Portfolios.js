@@ -92,14 +92,14 @@ const Portfolios = () => {
         className="loader__text"
         style={{ display: isLoading ? "flex" : "none" }}
       >
-        Loading items,
+        Loading...
       </div>
       <div style={{ display: isLoading ? "none" : "block" }}>
         <Container className="py-1">
           <Row>
             {portfolios.map((portfolio) => (
-              <Col lg={4} md={2} className="d-flex mb-4">
-                <Card key={portfolio.id} text="secondary">
+              <Col key={portfolio.id} lg={4} sm={6} className="d-flex mb-4">
+                <Card text="secondary">
                   <Card.Img variant="top" src={portfolio.image} />
                   <Card.Body>
                     <Card.Title>{portfolio.webName}</Card.Title>
