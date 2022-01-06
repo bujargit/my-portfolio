@@ -1,14 +1,11 @@
-import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.css';
-import "@fontsource/rubik";
-
-import "./index.css";
-import App from "./App";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './app/App';
+import './index.css';
 
 ReactDOM.render(
-  <BrowserRouter>
+  <React.StrictMode>
     <App />
-  </BrowserRouter>,
-  document.getElementById("root")
+  </React.StrictMode>,
+  document.getElementById('root')
 );

@@ -1,0 +1,50 @@
+
+import React from "react";
+import { Route } from "react-router-dom";
+import { AnimatedSwitch } from "react-router-transition";
+import Home from "../pages/Home";
+import About from "../pages/About";
+import Portfolio from "../pages/Portfolio";
+import ContactUs from "../pages/Contact";
+// import NotFound from '../pages/NotFound'
+
+function AppRoutes() {
+  return (
+    <AnimatedSwitch
+      atEnter={anim.atEnter}
+      atLeave={anim.atLeave}
+      atActive={anim.atActive}
+      mapStyles={mapStyles}
+      className="page"
+    >
+      <Route exact path="/" component={Home} />
+      <Route path="/about" component={About} />
+      <Route path="/portfolio" component={Portfolio} />
+      <Route path="/contact" component={ContactUs} />
+      <Route path="*" component={Home} />
+      {/* <Route path="/not-found" component={NotFound} />
+      <Redirect to="/not-found" /> */}
+    </AnimatedSwitch>
+  );
+}
+
+function mapStyles(styles) {
+  return {
+    transition: `transform 100ms ease`,
+    transform: `translateY(${styles.translateY}%)`,
+  };
+}
+
+const anim = {
+  atEnter: {
+    translateY: 100,
+  },
+  atLeave: {
+    translateY: -130,
+  },
+  atActive: {
+    translateY: 0,
+  },
+};
+
+export default AppRoutes;

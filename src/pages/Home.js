@@ -1,60 +1,66 @@
 import React from "react";
+import "./Home.css";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+import Typical from "react-typical";
+import { introdata, meta } from "../content_option";
 import { Link } from "react-router-dom";
-import classes from "./Home.module.css";
-import Typewriter from "typewriter-effect";
-import selfImage from "../assets/laptop-work.png";
-import { Container, Row, Col } from "react-bootstrap";
 
-const Home = () => {
+export default function Home() {
   return (
-    <section className="jumbotron bg-none py-1">
-      <Container>
-        <Row>
-          <Col lg={6} md={12}>
-            <h6>React JS Developer</h6>
-            <h1 className={classes.home_title}>I'm Bujar Hyseni</h1>
-            <div className={classes.typewrite__holder}>
-              <span>I'm a</span>
-              <span>
-                <Typewriter
-                  onInit={(typewriter) => {
-                    typewriter
-                      .pauseFor(1000)
-                      .typeString("FrontEnd Developer")
-                      .pauseFor(2000)
-                      .deleteAll()
-                      .typeString("JS Developer")
-                      .pauseFor(2000)
-                      .deleteAll()
-                      .typeString("UI/UX Designer")
-                      .pauseFor(2000)
-                      .deleteAll()
-                      .typeString("React JS Developer")
-                      .start();
-                  }}
-                />
-              </span>
+    <HelmetProvider>
+      <section id="home" className="home">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title> {meta.title}</title>
+          <meta name="description" content={meta.description} />
+        </Helmet>
+        <div className="intro_sec d-block d-lg-flex align-items-center ">
+          <div
+            className="h_bg-image order-1 order-lg-2 h-100 "
+            style={{ backgroundImage: `url(${introdata.your_img_url})` }}
+          ></div>
+          <div className="text order-2 order-lg-1 h-100 d-lg-flex justify-content-center">
+            <div className="align-self-center ">
+              <div className="intro mx-auto">
+                <h2 className="mb-1x">{introdata.title}</h2>
+                <h1 className="fluidz-48 mb-1x">
+                  <Typical
+                    steps={[
+                      introdata.animated.first,
+                      1500,
+                      introdata.animated.second,
+                      1500,
+                      introdata.animated.third,
+                      1500,
+                    ]}
+                    loop={Infinity}
+                    wrapper="p"
+                  />
+                </h1>
+                <p className="mb-1x">{introdata.description}</p>
+                <div className="intro_btn-action pb-5">
+                  <Link to="/portfolio" className="text_2">
+                    <div id="button_p" className="ac_btn btn ">
+                      My Portfolio
+                      <div className="ring one"></div>
+                      <div className="ring two"></div>
+                      <div className="ring three"></div>
+                    </div>
+                  </Link>
+                  <Link to="/contact">
+                    <div id="button_h" className="ac_btn btn">
+                      Contact Me
+                      <div className="ring one"></div>
+                      <div className="ring two"></div>
+                      <div className="ring three"></div>
+                    </div>
+                  </Link>
+                </div>
+              </div>
             </div>
-
-            <Link
-              className={`btn btn-primary ${classes.home__button}`}
-              to="/portfolio"
-              role="button"
-            >
-              Learn more
-            </Link>
-          </Col>
-          <Col lg={6} md={12} className="text-center">
-            <img
-              className={classes.my__avatar}
-              src={selfImage}
-              alt="selfavatar"
-            />
-          </Col>
-        </Row>
-      </Container>
-    </section>
+          </div>
+        </div>
+      </section>
+    </HelmetProvider>
   );
-};
-
-export default Home;
+}
