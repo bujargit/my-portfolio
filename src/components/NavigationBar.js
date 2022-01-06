@@ -16,8 +16,7 @@ const NavigationBar = () => {
             <Nav className="me-auto">
               <Nav.Link
                 className="nav-item nav-link"
-                exact
-                activeClassName={classes.active}
+                exact="true"                
                 to="/"
                 as={Link}
                 eventKey="0"
@@ -25,8 +24,7 @@ const NavigationBar = () => {
                 Home
               </Nav.Link>
               <Nav.Link
-                className="nav-item nav-link"
-                activeClassName={classes.active}
+                className="nav-item nav-link"                
                 to="/portfolio"
                 as={Link}
                 eventKey="1"
@@ -34,8 +32,7 @@ const NavigationBar = () => {
                 Portfolio
               </Nav.Link>
               <Nav.Link
-                className="nav-item nav-link"
-                activeClassName={classes.active}
+                className="nav-item nav-link"                
                 to="/contact"
                 as={Link}
                 eventKey="2"

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import PortfolioItem from "../components/PortfolioItem";
+// import { Link } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
 import portImage1 from "../assets/images/aa1.de.png";
 import portImage2 from "../assets/images/adc-ks.png";
 import portImage3 from "../assets/images/amg-lithium.png";
@@ -83,7 +84,7 @@ const Portfolios = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 1000);
   }, []);
 
   return (
@@ -99,20 +100,7 @@ const Portfolios = () => {
           <Row>
             {portfolios.map((portfolio) => (
               <Col key={portfolio.id} lg={4} sm={6} className="d-flex mb-4">
-                <Card text="secondary">
-                  <Card.Img variant="top" src={portfolio.image} />
-                  <Card.Body>
-                    <Card.Title>{portfolio.webName}</Card.Title>
-                    <Card.Text>{portfolio.description}</Card.Text>
-                    <Link
-                      variant="primary"
-                      to={{ pathname: `${portfolio.url}` }}
-                      target="_blank"
-                    >
-                      {portfolio.url}
-                    </Link>
-                  </Card.Body>
-                </Card>
+                <PortfolioItem items={portfolio}/>
               </Col>
             ))}
           </Row>
