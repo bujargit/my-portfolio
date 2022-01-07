@@ -1,22 +1,22 @@
-import React, { useState } from "react";
-import * as emailjs from "emailjs-com";
+import React from "react";
+// import * as emailjs from "emailjs-com";
 import "./Contact.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col } from "react-bootstrap";
 import { meta } from "../content_option";
-import { contactConfig } from "../content_option";
+// import { contactConfig } from "../content_option";
 import { introdata } from "../content_option";
 
 export default function ContactUs() {
-  const [formData, setFormdata] = useState({
-    email: "",
-    name: "",
-    message: "",
-    loading: false,
-    show: false,
-    alertmessage: "",
-    variant: "",
-  });
+  // const [formData, setFormdata] = useState({
+  //   email: "",
+  //   name: "",
+  //   message: "",
+  //   loading: false,
+  //   show: false,
+  //   alertmessage: "",
+  //   variant: "",
+  // });
 
   // const handleSubmit = (e) => {
   //   e.preventDefault();
@@ -171,7 +171,7 @@ export default function ContactUs() {
           </div>
         </div>
       </Container>
-      <div className={formData.loading ? "loading-bar" : "d-none"}></div>
+      {/* <div className={formData.loading ? "loading-bar" : "d-none"}></div> */}
     </HelmetProvider>
   );
 }
