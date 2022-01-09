@@ -1,29 +1,19 @@
 import React from "react";
 import "./SocialIcons.css";
 import { FaFacebookF, FaLinkedin } from "react-icons/fa";
-import { socialprofils } from "../data/content";
+import { socialprofiles } from "../data/content";
 
 export default function Socialicons(params) {
   return (
     <div className="stick_follow_icon">
-      <ul>
-        {/* <li>
-          <a href={socialprofils.twitter}>
-            <FaTwitter />
-          </a>
-        </li>
+      <ul>        
         <li>
-          <a href={socialprofils.github}>
-            <FaGithub />
-          </a>
-        </li> */}
-        <li>
-          <a href={socialprofils.facebook}>
+          <a href={socialprofiles.facebook}>
             <FaFacebookF />
           </a>
         </li>
         <li>
-          <a href={socialprofils.linkedin}>
+          <a href={socialprofiles.linkedin}>
             <FaLinkedin />
           </a>
         </li>

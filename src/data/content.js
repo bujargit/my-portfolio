@@ -110,9 +110,9 @@ const dataportfolio = [
   },
 ];
 
-const socialprofils = {
-  facebook: "https://facebook.com",
-  linkedin: "https://linkedin.com",
+const socialprofiles = {
+  facebook: "https://facebook.com/bujar.hyseni.52",
+  linkedin: "https://www.linkedin.com/in/bujar-hyseni-b1834a28/",
 };
 export {
   meta,
@@ -120,7 +120,7 @@ export {
   dataportfolio,
   skills,
   introdata,
-  socialprofils,
+  socialprofiles,
   logotext,
   contactImg,
 };
