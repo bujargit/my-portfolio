@@ -2,7 +2,7 @@ import React from "react";
 import "./Home.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Typical from "react-typical";
-import { introdata, meta } from "../content_option";
+import { introdata, meta } from "../data/content";
 import { Link } from "react-router-dom";
 
 export default function Home() {

@@ -6,11 +6,10 @@ import {
   withRouter,
 } from "react-router-dom";
 import AppRoutes from "./routes";
-import Headermain from "../header";
+import Headermain from "./components/Header";
 // import AnimatedCursor from "react-animated-cursor";
-import Socialicons from "../components/SocialIcons";
+import Socialicons from "./components/SocialIcons";
 import "./App.css";
-
 
 function _ScrollToTop(props) {
   const { pathname } = useLocation();

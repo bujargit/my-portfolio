@@ -1,11 +1,10 @@
-
 import React from "react";
 import { Route } from "react-router-dom";
 import { AnimatedSwitch } from "react-router-transition";
-import Home from "../pages/Home";
-import About from "../pages/About";
-import Portfolio from "../pages/Portfolio";
-import ContactUs from "../pages/Contact";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Portfolio from "./pages/Portfolio";
+import ContactUs from "./pages/Contact";
 // import NotFound from '../pages/NotFound'
 
 function AppRoutes() {

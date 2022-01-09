@@ -1,69 +1,33 @@
-import React from "react";
-// import * as emailjs from "emailjs-com";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 import "./Contact.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { Container, Row, Col } from "react-bootstrap";
-import { meta } from "../content_option";
-// import { contactConfig } from "../content_option";
-import { introdata } from "../content_option";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { contactImg, meta } from "../data/content";
+// import { contactConfig } from "../data/content";
 
 export default function ContactUs() {
-  // const [formData, setFormdata] = useState({
-  //   email: "",
-  //   name: "",
-  //   message: "",
-  //   loading: false,
-  //   show: false,
-  //   alertmessage: "",
-  //   variant: "",
-  // });
+  const form = useRef();
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setFormdata({ loading: true });
-
-  //   const templateParams = {
-  //     from_name: formData.email,
-  //     user_name: formData.name,
-  //     to_name: contactConfig.YOUR_EMAIL,
-  //     message: formData.message,
-  //   };
-
-  //   emailjs
-  //     .send(
-  //       contactConfig.YOUR_SERVICE_ID,
-  //       contactConfig.YOUR_TEMPLATE_ID,
-  //       templateParams,
-  //       contactConfig.YOUR_USER_ID
-  //     )
-  //     .then(
-  //       (result) => {
-  //         console.log(result.text);
-  //         setFormdata({
-  //           loading: false,
-  //           alertmessage: "SUCCESS! ,Thankyou for your messege",
-  //           variant: "success",
-  //           show: true,
-  //         });
-  //       },
-  //       (error) => {
-  //         console.log(error.text);
-  //         setFormdata({
-  //           alertmessage: `Faild to send!,${error.text}`,
-  //           variant: "danger",
-  //           show: true,
-  //         });
-  //         document.getElementsByClassName("co_alert")[0].scrollIntoView();
-  //       }
-  //     );
-  // };
-
-  // const handleChange = (e) => {
-  //   setFormdata({
-  //     ...formData,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        "service_sn925gq",
+        "template_ygnp43a",
+        form.current,
+        "user_zMqL0aru9hCKEIoiamDi2"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );    
+    e.target.reset();
+  };
 
   return (
     <HelmetProvider>
@@ -73,105 +37,73 @@ export default function ContactUs() {
           <title>{meta.title} | Contact</title>
           <meta name="description" content={meta.description} />
         </Helmet>
-        <Row className="mb-5 mt-3">
+        <Row className="mb-3 mt-3">
           <Col lg="6">
             <h1 className="display-4 mb-4">Contact Me</h1>
             <hr className="t_border my-4 ml-0 text-left" />
           </Col>
         </Row>
-        {/* <Row className="sec_sp">
-          <Col lg="12">
-            <Alert
-              //show={formData.show}
-              variant={formData.variant}
-              className={`rounded-0 co_alert ${
-                formData.show ? "d-block" : "d-none"
-              }`}
-              onClose={() => setFormdata({ show: false })}
-              dismissible
-            >
-              <p className="my-0">{formData.alertmessage}</p>
-            </Alert>
+        <Row className="pb-5">
+          <Col lg="6">
+            <Form onSubmit={sendEmail} ref={form}>
+              <Form.Group className="mb-3">
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  type="name"
+                  name="name"
+                  placeholder="Enter your name"
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Your Subject</Form.Label>
+                <Form.Control
+                  type="subject"
+                  name="subject"
+                  placeholder="Enter subject"
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Send your message</Form.Label>
+                <textarea
+                  name="message"
+                  className="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="5"
+                  required
+                />
+              </Form.Group>
+              {/* <Button variant="primary" type="submit">
+                Submit
+              </Button> */}
+              <Button
+                id="button_h"
+                className="ac_btn btn bt-primary"
+                type="submit"
+                variant="outline-dark"
+              >
+                Contact Me
+                <div className="ring one"></div>
+                <div className="ring two"></div>
+                <div className="ring three"></div>
+              </Button>
+            </Form>
           </Col>
-          <Col lg="5" className="mb-5">
-            <h3 className="color_sec py-4">Get in touch</h3>
-            <address>
-              <strong>Email:</strong>{" "}
-              <a href={`mailto:${contactConfig.YOUR_EMAIL}`}>
-                {contactConfig.YOUR_EMAIL}
-              </a>
-              <br />
-              <br />
-              {contactConfig.hasOwnProperty("YOUR_FONE") ? (
-                <p>
-                  <strong>Phone:</strong> {contactConfig.YOUR_FONE}
-                </p>
-              ) : (
-                ""
-              )}
-            </address>
-            <p>{contactConfig.description}</p>
+          <Col lg="6">
+            <img className="w-100" src={contactImg.image} alt="contac-img" />
           </Col>
-          <Col lg="7" className="d-flex align-items-center">
-            <form onSubmit={handleSubmit} className="contact__form w-100">
-              <Row>
-                <Col lg="6" className="form-group">
-                  <input
-                    className="form-control"
-                    id="name"
-                    name="name"
-                    placeholder="Name"
-                    value={formData.name || ""}
-                    type="text"
-                    required
-                    onChange={handleChange}
-                  />
-                </Col>
-                <Col lg="6" className="form-group">
-                  <input
-                    className="form-control rounded-0"
-                    id="email"
-                    name="email"
-                    placeholder="Email"
-                    type="email"
-                    value={formData.email || ""}
-                    required
-                    onChange={handleChange}
-                  />
-                </Col>
-              </Row>
-              <textarea
-                className="form-control rounded-0"
-                id="message"
-                name="message"
-                placeholder="Message"
-                rows="5"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              ></textarea>
-              <br />
-              <Row>
-                <Col lg="12" className="form-group">
-                  <button className="btn ac_btn" type="submit">
-                    {formData.loading ? "Sending..." : "Send"}
-                  </button>
-                </Col>
-              </Row>
-            </form>
-          </Col>
-        </Row> */}
-        <div className="intro_sec d-block d-lg-flex align-items-center ">
-          <div
-            className="h_bg-image order-1 order-lg-2 h-100 "
-            style={{ backgroundImage: `url(${introdata.your_img_url})` }}
-          ></div>
-          <div className="text order-2 order-lg-1 h-100 d-lg-flex justify-content-center">
-            
-          </div>
-        </div>
+        </Row>
       </Container>
-      {/* <div className={formData.loading ? "loading-bar" : "d-none"}></div> */}
     </HelmetProvider>
   );
 }

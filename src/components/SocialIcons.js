@@ -1,7 +1,7 @@
 import React from "react";
 import "./SocialIcons.css";
 import { FaFacebookF, FaLinkedin } from "react-icons/fa";
-import { socialprofils } from "../content_option";
+import { socialprofils } from "../data/content";
 
 export default function Socialicons(params) {
   return (

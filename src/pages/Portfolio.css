@@ -78,3 +78,7 @@
 .po_item .content a:hover {
     text-decoration: none;
 }
+
+.loader__text{
+    justify-content: center;
+}
