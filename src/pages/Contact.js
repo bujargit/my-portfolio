@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { useHistory } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import "./Contact.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
@@ -7,6 +8,7 @@ import { contactImg, meta } from "../data/content";
 // import { contactConfig } from "../data/content";
 
 export default function ContactUs() {
+  const history = useHistory();
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -18,15 +20,11 @@ export default function ContactUs() {
         form.current,
         "user_zMqL0aru9hCKEIoiamDi2"
       )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );    
-    e.target.reset();
+      .then(() => {
+        history.replace("/");
+      });
+
+    // e.target.reset();
   };
 
   return (
