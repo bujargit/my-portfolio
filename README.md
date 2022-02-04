@@ -2,9 +2,7 @@
 
 A simple Portfolio template for developer/designers built with React. 
 
-### [live preview](https://ubai97.github.io/react-portfolio/)
-
-![react portfoiio](src/assets/images/react%20portfolio%20gif.gif)
+### [live preview](https://portfolio.react-studio.tk/)
 
 ### Setup
 
@@ -14,13 +12,11 @@ Get the code.
  
 Install required dependencies
 
-<pre>yarn install</pre>
-
-modify pages content in  `src/content_option.js`.
+<pre>npm install</pre>
 
 statrt the server
 
-<pre>yarn start</pre>
+<pre>npm start</pre>
 
 ### Thanks
 If you like this portfolio template don't forget give it a ⭐ 

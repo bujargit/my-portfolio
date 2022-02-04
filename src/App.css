@@ -1,11 +1,11 @@
 .page {
-    position: relative;
+  position: relative;
 }
 
-.page>div {
-    position: absolute;
-    background: var(--bg-color);
-    left: 0;
-    right: 0;
-    top: 0;
+.page > div {
+  position: absolute;
+  background: var(--bg-color);
+  left: 0;
+  right: 0;
+  top: 0;
 }
