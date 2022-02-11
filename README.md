@@ -19,7 +19,7 @@ statrt the server
 <pre>npm start</pre>
 
 ### Thanks
-If you like this portfolio template don't forget give it a ⭐ 
+
  
 
 
